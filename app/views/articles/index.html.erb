@@ -1,1 +1,55 @@
 <%= render 'shared/navbar' %>
+
+<ul class="flex-container">
+<%@articles.each do |article|%>
+<%type_of_card = rand(1..4)%>
+<%if type_of_card == 1%>
+<li class="flex-item">
+<div class="card 1">
+  <div class="card_image"> <img src="https://media3.giphy.com/media/l4hLylBTtz5LO5F6g/giphy.gif?cid=ecf05e47vpo5axhu64mrh7tmwed810e7iaytss9rm91dxns4&rid=giphy.gif" /> </div>
+  <div class="card_title title-white">
+    <%= link_to "#{article.title}", article_path(article[:id]), style:"text-decoration:none; color:white;" %>
+  </div>
+</div>
+</li>
+<%elsif type_of_card == 2%>
+<li class="flex-item">
+<div class="card 2">
+  <div class="card_image">
+    <img src="https://media3.giphy.com/media/ZVik7pBtu9dNS/giphy.gif?cid=ecf05e473133ozxfychbtzv8fskaarojdv51wmwoh6u0kd3u&rid=giphy.gif" />
+    </div>
+  <div class="card_title title-white">
+        <%= link_to "#{article.title}", article_path(article[:id]), style:"text-decoration:none; color:white;" %>
+  </div>
+</div>
+</li>
+<%elsif type_of_card == 3%>
+<li class="flex-item">
+<div class="card 3">
+  <div class="card_image">
+    <img src="https://media3.giphy.com/media/bj09BK2BzLLQk/giphy.gif?cid=ecf05e47urr76i2xiu7dsamnymalmxu4ile1dd0m09wuf5mw&rid=giphy.gif" />
+  </div>
+  <div class="card_title">
+        <%= link_to "#{article.title}", article_path(article[:id]), style:"text-decoration:none; color:white;" %>
+  </div>
+</div>
+</li>
+<%elsif type_of_card == 4%>
+<li class="flex-item">
+  <div class="card 4">
+  <div class="card_image">
+    <img src="https://media4.giphy.com/media/3o6ZtgnmZDZeAshxYY/giphy.gif?cid=ecf05e47ofloo0hnn4ojpeht39iqy2nmjrxu03pou5gwdqf2&rid=giphy.gif" />
+    </div>
+  <div class="card_title title-black">
+        <%= link_to "#{article.title}", article_path(article[:id]), style:"text-decoration:none; color:white;" %>
+  </div>
+  </div>
+</li>  
+<%end%>  
+<%end%>
+</ul>
+
+
+
+
+
