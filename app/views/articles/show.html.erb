@@ -71,7 +71,7 @@
     }
     </style>
 
-    <div style="background:white; border-radius:8px;margin:50px;padding:25px; border:solid 1px;">
+    
     
     <%elsif @article.title == "drag with style"%>
     
@@ -153,6 +153,9 @@ body {
   font-size: 20px;
   margin: 0;
 }
+p {
+  margin: 0 0 3rem;
+}
 
 .items {
   height: 800px;
@@ -204,18 +207,38 @@ body {
 .item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
 .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
     </style>
+
+  <%elsif @article.title == "secret word"%>
+  <h4>type "joseph"</h4>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+  <script>
+const pressed = [];
+const secretCode = 'joseph';
+
+window.addEventListener('keyup', (e) => {
+  console.log(e.key);
+  pressed.push(e.key);
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  if (pressed.join('').includes(secretCode)) {
+    console.log('DING DING!');
+    cornify_add();
+  }
+  console.log(pressed);
+});
+</script>
     <%end%>
-    <h4>The code for it is the following</h4>
-    <pre>
-    <code>
-    <h3>HTML</h3>
-        <%=@article.HTML%>
-        <h3>CSS</h3>
-        <%=@article.CSS%>
-        <h3>JS</h3>
-        <%=@article.JS%>
-    </pre>
-    </code>
+    <div style=" padding: 1rem 2rem 1rem 5rem; border-radius:8px; background: white; border:1px solid; margin: 3rem;">
+      <h4>The code for it is the following</h4>
+        <pre>
+        <code>
+        <h3>HTML</h3>
+            <%=@article.HTML%>
+            <h3>CSS</h3>
+            <%=@article.CSS%>
+            <h3>JS</h3>
+            <%=@article.JS%>
+        </code>
+        </pre>
     </div>
 
 
